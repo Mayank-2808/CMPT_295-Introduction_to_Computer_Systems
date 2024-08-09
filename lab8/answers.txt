@@ -1,0 +1,15 @@
+1. L1 cache size: 256 KiB
+   n used: 32000
+
+worst case for sum_array_col: Calculated -42.0269 in     2.26ms on 1*32000 array
+worst case for sum_array_row: Calculated -42.0269 in     2.07ms on 1*32000 array
+
+So, the sum_array_row was faster than sum_array_col by 0.19 ms when considering the worst case for both in L1 cache.
+
+2. When an array's size surpasses the capacity of CPU caches, by-column summation speed suffers as a result of a rise in cache misses and consequent delays in main memory data fetching. This can also be attributed to the fact that C is a row-major language and it's convenient to fetch data while doing by-row summation. 
+
+4. Avoiding the branch with a conditional move speeds up the hailstone length calculation by approximately 14%. In comparison to the C code, the hailstone_length assembly function was approximately 10% faster while the hailstone_length_cmov function was approximately 23% faster.
+
+       hailstone_length_c calculated  218020677 in 293 ms
+         hailstone_length calculated  218020677 in 262 ms
+         hailstone_length calculated  218020677 in 224 ms

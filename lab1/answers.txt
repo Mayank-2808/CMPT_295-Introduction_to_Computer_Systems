@@ -1,0 +1,83 @@
+1. 
+
+The four commands that I used to assemble, compile, link, and run in the "Compiling and Assembling" section were:
+
+as array_sum.S -o array_sum.o
+gcc -Wall -Wpedantic -std=c17 -march=haswell -c array_sum_speed.c 
+gcc -Wall -Wpedantic -std=c17 -march=haswell array_sum.o array_sum_speed.o
+./a.out 1000000
+
+2. 
+
+The first command I used to compile array_sum.c was
+
+gcc -Wall -Wpedantic -std=c17 -march=haswell -c array_sum.c
+
+The provided assembly turned out to be significantly faster, compared to the C implementation.
+The time taken by the assembly implementation on average was = 0.4299 ms 
+Whereas, for the C implementation the average came out to be = 2.8484 ms
+
+3. 
+
+Average time for Assembly w/ `-03` = 0.4177 ms
+Average time for C w/ `-03`        = 0.1686 ms
+Average time for C w/o `-03`       = 2.8484 ms
+
+Hence, C with `-03` is faster than Assembly with `-03`. 
+And, C without `-03` is slower than C with `-03`. 
+
+
+
+TIME TAKEN FOR VARIOUS CASES
+
+'Assembly' w/o `-03`:
+
+calculated 4502733 in 0.638262 ms
+calculated 4502733 in 0.478028 ms
+calculated 4502733 in 0.379946 ms
+calculated 4502733 in 0.381416 ms
+calculated 4502733 in 0.425823 ms
+calculated 4502733 in 0.399766 ms
+calculated 4502733 in 0.445427 ms
+calculated 4502733 in 0.385082 ms
+calculated 4502733 in 0.386844 ms
+calculated 4502733 in 0.378293 ms
+
+'Assembly' w/ `-03`:
+
+calculated 4502733 in 0.677193 ms
+calculated 4502733 in 0.493916 ms
+calculated 4502733 in 0.391269 ms
+calculated 4502733 in 0.400959 ms
+calculated 4502733 in 0.404465 ms
+calculated 4502733 in 0.371507 ms
+calculated 4502733 in 0.388969 ms
+calculated 4502733 in 0.38212 ms
+calculated 4502733 in 0.397671 ms
+calculated 4502733 in 0.389068 ms
+
+'C' w/o `-03`:
+
+calculated 4502733 in 2.88588 ms
+calculated 4502733 in 2.80724 ms
+calculated 4502733 in 2.84073 ms
+calculated 4502733 in 2.84837 ms
+calculated 4502733 in 2.93391 ms
+calculated 4502733 in 2.86826 ms
+calculated 4502733 in 2.83733 ms
+calculated 4502733 in 2.81702 ms
+calculated 4502733 in 2.81181 ms
+calculated 4502733 in 2.83325 ms
+
+'C' w/ `-03`:
+
+calculated 4502733 in 0.347316 ms
+calculated 4502733 in 0.167782 ms
+calculated 4502733 in 0.157278 ms
+calculated 4502733 in 0.157516 ms
+calculated 4502733 in 0.15792 ms
+calculated 4502733 in 0.157916 ms
+calculated 4502733 in 0.166082 ms
+calculated 4502733 in 0.15727 ms
+calculated 4502733 in 0.15757 ms
+calculated 4502733 in 0.157727 ms

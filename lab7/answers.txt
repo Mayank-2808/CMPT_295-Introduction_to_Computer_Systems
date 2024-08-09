@@ -1,0 +1,14 @@
+1. Commands used to compile/assemble :
+
+   Testing: gcc -Wall -Wpedantic -std=c17 -march=haswell -O3 tests.c lab7.S -o prog1
+
+   Timing:  gcc -Wall -Wpedantic -o3 -std=c17 -march=haswell -O3 timing.c lab7c.c lab7.S -o
+            prog2
+
+2. dot function:
+
+The C implementation for the dot function was faster than the assembly implementation. With the ratios being 0.46 ns/elt and 0.63 ns/elt for C and assembly implementation respectively.
+
+dot_struct function:
+
+The C implementation for the dot_struct function was faster than the assembly implementation. With the ratios being 0.70 ns/elt and 0.71 ns/elt for C and assembly implementation respectively.

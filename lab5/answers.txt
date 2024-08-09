@@ -1,0 +1,43 @@
+1. Remotely accessed the CSIL Linux desktop through my MacBook.
+
+2. 
+0 1 1 2 3 5 8 13 21 34
+fibonacci(35) == 9227465 == 9227465
+              warmup(1) calculated          400000000 in     0.0 ms
+              warmup(2) calculated         1000000000 in     0.0 ms
+              warmup(3) calculated         2000000000 in     0.0 ms
+              warmup(4) calculated         3400000000 in     0.0 ms
+              warmup(5) calculated         5200000000 in     0.0 ms
+polynomial1(3,2,7,-1,2) calculated        23200000000 in   494.0 ms
+polynomial2(3,2,7,-1,2) calculated        23200000000 in   347.2 ms
+polynomial3(3,2,7,-1,2) calculated        23200000000 in   360.7 ms
+is_odd1(7) + is_odd1(8) calculated          200000000 in  3958.6 ms
+is_odd2(7) + is_odd2(8) calculated          200000000 in   624.3 ms
+is_odd3(7) + is_odd3(8) calculated          200000000 in   614.9 ms
+              mul1(123) calculated   1612210200000000 in   309.5 ms
+              mul2(123) calculated   1612210200000000 in   319.5 ms
+              mul3(123) calculated   1612210200000000 in   303.2 ms
+
+
+For the polynomial functions:
+
+    polynomial1 took 494 ms
+    polynomial2 took 347.2 ms
+
+Hence the speed improvement is, (494 - 347.2) ms = 146.8 ms
+
+For the is_odd functions:
+
+    is_odd1 took 3958.6 ms
+    is_odd2 took 624.3 ms
+
+Hence the speed improvement is, (3958.6 - 624.3) ms = 3334.3 ms
+
+For the mul functions:
+
+    mull1 took 309.5 ms
+    mul2 took 319.5 ms
+
+Hence there was actually a decrease in speed, (319.5 - 309.5) ms = 10 ms
+
+3. Even though the C implementation was described with the 'slow' algorithm. For me, it turned out be the fastest in both is_odd and mil functions, whereas, polynomial2 was the fastest in the polynomial functions. In conclusion, the speed of the C implementations varies from case to case, being faster in some and slower in the other. 
