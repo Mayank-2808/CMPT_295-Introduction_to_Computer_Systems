@@ -1,0 +1,32 @@
+1. The output of timing.cpp was as follows:
+
+                   warmup took    21.4 ms
+                   warmup took    21.4 ms
+             dot_double_c took    21.5 ms
+               dot_double took    22.0 ms
+           dot_double_vec took    13.2 ms
+            dot_double_vc took    13.7 ms
+
+             dot_single_c took    19.5 ms
+               dot_single took    20.1 ms
+           dot_single_vec took     6.3 ms
+            dot_single_vc took     6.7 ms
+
+       map_poly_double_c1 took    33.2 ms
+       map_poly_double_c2 took    32.6 ms
+          map_poly_double took    48.2 ms
+      map_poly_double_vec took    30.6 ms
+       map_poly_double_vc took    32.5 ms
+
+        map_poly_single_c took    16.0 ms
+          map_poly_single took    34.4 ms
+      map_poly_single_vec took    15.5 ms
+       map_poly_single_vc took    16.1 ms
+
+In comparison to the assembly implementations last week, the "dot product" and "map polynomial" implementations speed up around ≈ 30% when using the vector instructions.
+
+2. The relative speedup of vectorized implementations on single-precision floating point values, over double-precision was about ≈ 10-20%.
+
+3. In the dot-product problem there is a data dependency between each addition operation because the next addition depends on the result of the previous one, which limits the compiler's ability to parallelize the operation.
+
+Whereas, the map polynomial problem involves independent calculations for each element of the input array. The lack of dependencies means multiple elements can be processed simultaneously, making it much easier to parallelize:

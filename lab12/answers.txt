@@ -1,0 +1,37 @@
+1. Without any compiler optimization, the local variables (n and is_even) are stored on the stack, whereas at '-O1 optimization', the local variables are stored in registers.
+
+2. For hailstone_length at '-O2 optimization', 3*n+1 is calculated using the lea command with rdi being the destination and [rdi+1+rdi*2] being the source.
+
+3. The '-O2 optimization' uses an iterative algorithm while the 'O1 optimization' uses a recurssive algorithm.
+
+4. map_poly_single_c was vectorized as it extensively uses vector instructions, whereas dot_single_c uses 'addss' for accumulation suggesting that it might not be vectorized.
+
+5. With -funsafe-math-optimizations, both dot_single_c and map_poly_single_c have shifted from using vector instructions to scalar instructions.
+
+6. the output after using '-O3 -funsafe-math-optimizations' was as follows:
+
+                   warmup took    14.2 ms
+                   warmup took    14.0 ms
+
+             dot_double_c took    14.5 ms
+               dot_double took    22.0 ms
+           dot_double_vec took    12.7 ms
+            dot_double_vc took    13.5 ms
+
+             dot_single_c took     7.0 ms
+               dot_single took    19.6 ms
+           dot_single_vec took     6.3 ms
+            dot_single_vc took     6.7 ms
+
+       map_poly_double_c1 took    31.7 ms
+       map_poly_double_c2 took    31.9 ms
+          map_poly_double took    47.6 ms
+      map_poly_double_vec took    30.4 ms
+       map_poly_double_vc took    32.0 ms
+
+        map_poly_single_c took    16.0 ms
+          map_poly_single took    33.9 ms
+      map_poly_single_vec took    15.3 ms
+       map_poly_single_vc took    15.8 ms
+
+The C versions of the dot product and polynomial mapping functions performed much better when the '-funsafe-math-optimizations' option was used, approaching the performance of the hand-written assembly and vectorclass implementations. Even with their improvements, the C implementations are still not as efficient as the hand-optimized ones.
